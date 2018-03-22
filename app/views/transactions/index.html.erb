@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-xs-3"><h1>Transactions</h1></div>
+<div class="col-xs-9">
+<%= link_to new_transaction_path, class: 'btn btn-success', style: 'margin-left:550px', id: 'newItemButton' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Transaction
+<% end %>
+</div>
+</div>  
+<br>
+
+<table class="table-striped table-bordered" style="width:80%">
+  <thead>
+    <tr>
+      <th>Transaction identifier</th>
+      <th>Issue Date</th>
+      <th>Due Date</th>
+      <th>Late Fee</th>
+      <th>Book Name</th>
+      <th>Reader Name</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr >
+        <td><%= transaction.transaction_id %></td>
+        <td><%= transaction.issue_date_time %></td>
+        <td><%= transaction.due_date_time %></td>
+        <td><%= transaction.late_fee %></td>
+        <td><%= transaction.book.book_name %></td>
+        <td><%= transaction.reader.reader_name%></td>
+        <td><%= link_to transaction ,class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-eye-open"></i> <% end %></td>
+        <td><%= link_to edit_transaction_path(transaction),class: 'btn btn-info btn-xs' do %><i class="glyphicon glyphicon-edit"></i> <% end %></td>
+        <td><%= link_to 'Renew Transaction', data: { toggle: "modal", target: "#my-transaction-modal#{transaction.transaction_id}"}, class: 'btn btn-success btn-xs' do %><i class="glyphicon glyphicon-ok"></i> <% end %></td>
+        <div class="modal fade" id="my-transaction-modal<%=transaction.transaction_id%>" title="Renew" style="">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: #f1f1f1;">
+                  <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                  <h3 id="myModalLabel">Renew Book </h3>
+                </div>
+                <div class="modal-body">
+                   Renewal date would be <%= transaction.issue_date_time+10.days%>. Would you like to renew the book <b>'<%= transaction.book.book_name %>'</b>? '
+                </div>
+                <div class="modal-footer">
+                  <%= link_to 'Renew', transaction_path(transaction), class: 'btn btn-success'%>
+                </div>
+              </div>
+            </div>
+        </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

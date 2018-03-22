@@ -1,0 +1,16 @@
+<div class="row">
+<div class="col-xs-3"><h1>Editing Transaction</h1></div>
+<div class="col-xs-6">
+	
+<%= link_to @transaction, class: 'btn btn-info', style: 'position:absolute;margin-left:370px', id: 'newItemButton' do %>
+  <i class="glyphicon glyphicon-eye-open"> View</i>
+<% end %>
+
+<%= link_to transactions_path, class: 'btn btn-danger', style: 'position:absolute;margin-left:480px', id: 'newItemButton' do %>
+  <i class="glyphicon glyphicon-remove"> Back</i>
+<% end %>
+
+</div>
+</div> 
+
+<%= render 'form', transaction: @transaction, from_edit: true %>

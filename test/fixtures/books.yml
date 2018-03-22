@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_id: 1
+  book_name: 'MyString'
+  book_desc: 'Dummy test'
+  book_category: 'MyString'
+  book_avail_in_lib: true
+  book_damaged: false
+
+two:
+  book_id: 2
+  book_name: 'MyString'
+  book_desc: 'Dummy test'
+  book_category: 'MyString'
+  book_avail_in_lib: true
+  book_damaged: false

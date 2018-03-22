@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+    font-family: "Lato", sans-serif;
+    height: 100vh; width: 100vw;
+
+}
+th,td{
+     text-align:center
+}
+tr{
+     line-height: 35px;min-height: 35px;height: 35px;
+}
+table{
+    width:100%;
+    border-color:black;
+}
+.my-panel-style{
+    width:90%!important;
+    border-color:black!important;
+}
+.my-panel-header{
+    height: 5%!important;
+    width:100%!important;
+    background-color: black!important;
+    border-color:black!important;
+}
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    text-align:center;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+.pageStyle{
+    margin-left: 20%;
+    margin-top:10%;
+}
+.pageHeader{
+    font-size:50px;
+    cursor:pointer;
+    background-color: #f1f1f1;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top:  100px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

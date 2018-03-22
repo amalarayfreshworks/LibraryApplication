@@ -1,0 +1,51 @@
+<h1></h1>
+
+<%= form_for :search_books, url: search_books_path, method: :get do |form| %>
+  <%= form.text_field :query, value: params[:search_books].presence && params[:search_books][:query] %>
+  <%= form.submit 'Search' %>
+<% end %>
+
+<% unless @books.nil? %>
+  <% if @books.empty? %>
+    <h2>No books found matching your query.</h2>
+  <% else %>
+    <div class="row">
+        <div class="my-panel-style panel panel-primary filterable">
+            <div class=" my-panel-header panel-heading" >
+                <h4>Books related to '<%=params[:search_books][:query]%>' and available in library</h4>
+            </div>
+            <table class="table-striped table-bordered " >
+              <thead>
+                <tr class="filters">
+                  <th><input type="text" class="form-control" placeholder="Book Identifier" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Book Category" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Available" disabled></th>
+                  <th><input type="text" class="form-control" placeholder="Damaged" disabled></th>
+                <!--   <th>Book identifier</th>
+                  <th>Book name</th>
+                  <th>Book category</th> -->
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @books.each do |book| %>
+                  <tr >
+                    <td><%= book.book_id %></td>
+                    <td><%= book.book_name %></td>
+                    <td><%= book.book_category %></td>
+                    <td><%= (book.book_avail_in_lib == true)? "Available" : "Unavailable" %></td>
+                    <td><%= (book.book_damaged == true)? "Damaged" : "Not Damaged" %></td>
+                    <td><%= link_to book_path(book.book_id,from_search: :true,query:  params[:search_books][:query]) ,class: 'btn btn-primary btn-xs' do %><i class="glyphicon glyphicon-eye-open"></i> <% end %></td>
+                    <td><%= link_to edit_book_path(book.book_id,from_search: :true),class: 'btn btn-info btn-xs' do %><i class="glyphicon glyphicon-edit"></i> <% end %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <br>
+</div>
+</div>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reader_id: 1
+  reader_name: 'MyString'
+  reader_mobile_num: '8056286205'
+
+two:
+  reader_id: 2
+  reader_name: 'MyString'
+  reader_mobile_num: '8885027537'

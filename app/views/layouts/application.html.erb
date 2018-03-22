@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+
+   <div style="width:100%;margin:0px;padding:0px;" id="navigator">
+    	<div class="pageHeader" onclick="openNav()">&#9776; Library Application</div>
+	 </div>
+  	<div id="mySidenav" class="sidenav">
+  		<a href="/books">Books</a>
+    	<a href="/readers">Readers</a>
+  		<a href="/transactions">Transactions</a>
+  		<a href="#">Contact Us</a>
+	</div>
+	<div id="pageContent"  style="margin-top:10%;margin-left:100px;margin-right:100px;">
+    	<%= yield %>
+	 </div>
+	</body>
+</html>
