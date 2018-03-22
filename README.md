@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# LibraryApplication
+LibraryApplication done as part of bootcamp
+>>>>>>> a01118f2e843d77e48da9e3383e2957fcd0102a4
